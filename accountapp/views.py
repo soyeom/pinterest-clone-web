@@ -4,6 +4,8 @@ from django.shortcuts import render
 # Create your views here.
 
 def hello_world(request):
-    return HttpResponse('Hello world!')
+    return render(request, 'base.html')
+
+#render는 Templates에서 response를 가져옴
 
 #기본적인 출력을 해주는 view

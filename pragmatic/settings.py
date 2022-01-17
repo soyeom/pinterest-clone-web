@@ -66,7 +66,8 @@ ROOT_URLCONF = 'pragmatic.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        #디렉토리=경로를 입력해주어야 view에서 templates의 html파일 이용가능
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
