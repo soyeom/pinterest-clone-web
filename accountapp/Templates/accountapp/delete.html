@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div style="text-align: center; max-width: 500px; margin: 4rem auto">
+        <div class="mb-">
+            <h4>Quit</h4>
+        </div>
+        <form action="{% url 'accountapp:delete' pk=target_user.pk %}" method="post">
+            <!--pk=user.pk에서 pk = user.pk 이런식으로 띄어쓰기 했더니 에러 났음-->
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger rounded-pill col-6 mt-3">
+        </form>
+    </div>
+
+{% endblock %}

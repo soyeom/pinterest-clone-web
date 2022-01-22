@@ -18,6 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('account/', include('accountapp.urls')),
+    path('accounts/', include('accountapp.urls')),
     #슬래시를 꼭 적어줘야 주소창이 뜬다
 ]

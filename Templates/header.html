@@ -9,13 +9,19 @@
             <span>nav2</span>
             <span>nav3</span>
 
-            {% if not user.is_authenticated %} #로그인 안 된 경우 로그아웃 보여줌
+            {% if not user.is_authenticated %} <!-- 로그인 안 된 경우 로그아웃 보여줌 -->
             <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
-                <span>login</span>
+                <span>Login</span>
             </a>
-            {% else %} #로그인 된 경우 로그아웃 보여줌
+             <a href="{% url 'accountapp:create' %}?next={{ request.path }}">
+                <span>Sign Up</span>
+            </a>
+            {% else %} <!-- 로그인 된 경우 -->
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+                <span>My Page</span>
+            </a>
             <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
-                <span>logout</span>
+                <span>Logout</span>
             </a>
             {% endif %}
         </div>

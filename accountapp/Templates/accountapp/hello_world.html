@@ -20,10 +20,10 @@
 
         </form>
 
-        {% if hello_world_list %}
+        {% if hello_world_list %} <!--view에서 들고옴-->
             {% for hello_world in hello_world_list %}
             <h4>
-                {{ hello_world.text }}
+                {{ hello_world.text }} <!--웹사이트에서 작성한 텍스트-->
             </h4>
             {% endfor %}
         {% endif %}
