@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accountapp.urls')),
+    path('profiles/', include('profileapp.urls')),
     #슬래시를 꼭 적어줘야 주소창이 뜬다
 ]

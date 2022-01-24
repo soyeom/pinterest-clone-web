@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'accountapp',
+    'profileapp',
 ]
 
 MIDDLEWARE = [
@@ -146,5 +147,10 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+
+MEDIA_URL = '/media/'
+#미디어에 접근할 수 있는 경로
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#미디어 파일을 올렸을 때 어느 경로에 지정 될 것인지, 루트 경로
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
