@@ -4,12 +4,29 @@
 
     <div>
         <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
-            <p>
-                {{ target_user.date_joined }}
-            </p>
+
+            <img src="{{ target_user.profile.image.url }}" alt="" style="height:9rem; width:9rem; border-radius:12rem; margin-bottom: 2rem;">
+            <!--근데 사이트에서 이미지가 안 뜸..라우팅을 해줘야 함!-->
+
+            {% if target_user.profile %}
             <h2 style="font-family: 'NanumMyeonjoBold'">
-                {{ target_user.username }}
+                {{ target_user.profile.nickname }}
+                <!--Nickname을 바꾸고 싶을 때-->
+                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                    edit
+                </a>
             </h2>
+            {% else %}
+            <a href="{% url 'profileapp:create'  %}">
+                <h2 style="font-family: 'NanumMyeonjoBold'">
+                    Create Profile
+                </h2>
+            </a>
+            {% endif %}
+
+            <h5 style="margin-bottom:4rem;">
+                {{ target_user.profile.message }}
+            </h5>
 
             {% if target_user == user %}
             <a href="{% url 'accountapp:update' pk=user.pk %}">
