@@ -4,15 +4,11 @@
 
     <div>
         <div style="text-align: center; max-width: 700px; margin: 4rem auto;">
-            <h1>
-                {{ target_article.title }}
-            </h1>
-            <h5>
-                {{ target_article.writer.profile.nickname }}
-            </h5>
+            <h1>{{ target_article.title }}</h1>
+            <h5>{{ target_article.writer.profile.nickname }}</h5>
             <hr>
 
-            <img style="width: 100%; border-radius: 1rem; margin: 2rem @;"
+            <img style="width: 100%; border-radius: 1rem; margin: 2rem 0;"
                  src="{{ target_article.image.url }}" alt="">
 
             <p>
@@ -24,12 +20,20 @@
             class="btn btn-primary rounded-pill col-3">
                 Update
             </a>
+
             <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
             class="btn btn-danger rounded-pill col-3">
                 Delete
             </a>
             {% endif %}
             <hr>
+
+            {% for comment in target_article.comment.all %}
+                {% include 'commentapp/detail.html' with comment=comment %}
+            {% endfor %}
+
+            {% include 'commentapp/create.html' with article=target_article %}
+            <!--html을 가져오고 안에 있었던 article을 현재 target_article과 동기화-->
 
         </div>
     </div>
