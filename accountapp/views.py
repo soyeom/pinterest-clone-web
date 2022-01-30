@@ -61,5 +61,6 @@ class AccountUpdateView(UpdateView):
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
+    #내가 가져올 모델 객체를 구분하기 위해 target_user로 이름 지어줌
     success_url = reverse_lazy('accountapp:login')
     template_name = 'accountapp/delete.html'

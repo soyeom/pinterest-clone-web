@@ -1,4 +1,4 @@
-<div style="text-align: center; margin:1rem @;">
+<div style="text-align: center; margin:1rem 0;">
     {% if page_obj.has_previous %}
     <!-- has_previous 객체는 현재 페이지에서 이전 페이지의 유무 확인 -->
     <a href="{% url 'articleapp:list' %}?page={{ page_obj.previous_page_number }}"
