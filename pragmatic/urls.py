@@ -24,6 +24,7 @@ urlpatterns = [
     path('profiles/', include('profileapp.urls')),
     path('articles/', include('articleapp.urls')),
     path('comments/', include('commentapp.urls')),
+    path('projects/', include('projectapp.urls')),
 
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     #슬래시를 꼭 적어줘야 주소창이 뜬다

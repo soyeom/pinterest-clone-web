@@ -6,7 +6,8 @@
         <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
 
             {% if target_user.profile %}
-             <img src="{{ target_user.profile.image.url }}" alt="" style="height:9rem; width:9rem; border-radius:12rem; margin-bottom: 2rem;">
+             <img src="{{ target_user.profile.image.url }}" alt=""
+                  style="height:9rem; width:9rem; border-radius:12rem; margin-bottom: 2rem; object-fit: cover;">
             <!--근데 사이트에서 이미지가 안 뜸..라우팅을 해줘야 함!-->
 
             <h2 style="font-family: 'NanumMyeonjoBold'">
@@ -49,6 +50,10 @@
             </a>
             {% endif %}
 
+        </div>
+
+        <div>
+            {% include 'snippets/list_fragment.html' with article_list=object_list %}
         </div>
     </div>
 
